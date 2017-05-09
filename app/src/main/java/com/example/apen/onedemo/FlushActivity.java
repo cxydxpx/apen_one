@@ -32,7 +32,6 @@ public class FlushActivity extends BaseActivity {
 
     @Override
     protected void init() {
-
     }
 
     @Override
@@ -41,16 +40,13 @@ public class FlushActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
     }
 
     @Override
     protected void initListener() {
-
     }
 
     @Override
     protected void processClick(View view) {
-
     }
 }

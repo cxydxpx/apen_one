@@ -57,3 +57,9 @@ freeline_core/
 freeline.py
 freeline_project_description.json
 release-tools/
+app/libs/
+app/src/main/java/com/example/apen/onedemo/client/
+app/src/main/java/com/example/apen/onedemo/manager/db/
+app/src/main/java/com/example/apen/onedemo/ui/fragment/
+app/src/main/java/com/example/apen/onedemo/utils/
+app/src/main/res/drawable/
