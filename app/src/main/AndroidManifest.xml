@@ -22,8 +22,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.MainActivity" />
+
         <activity android:name=".manager.ui.ManMainActivity"/>
+        <activity android:name=".manager.ui.ManGoodsActivity"/>
+        <activity android:name=".manager.ui.SelectCategoryActivity"/>
         <activity android:name=".manager.ui.MaLoginActivity" />
+        <activity android:name=".manager.ui.QueryGoodsActivity"/>
+        <activity android:name=".manager.ui.ShopCarActivity"/>
+        <activity android:name=".manager.ui.SubmitOrderActivity"/>
+        <activity android:name=".manager.ui.UserInfomation"/>
+        <activity android:name=".manager.ui.AddressActivity"/>
+        <activity android:name=".manager.ui.CashActivity"/>
+
     </application>
 
 </manifest>

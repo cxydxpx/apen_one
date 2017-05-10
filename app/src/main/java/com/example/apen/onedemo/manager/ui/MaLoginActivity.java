@@ -42,8 +42,8 @@ public class MaLoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void processClick(View view) {
-        switch (view.getId()) {
+    protected void processClick(View v) {
+        switch (v.getId()) {
             case R.id.btn_login:
 
                 Intent intent = new Intent(this,ManMainActivity.class);

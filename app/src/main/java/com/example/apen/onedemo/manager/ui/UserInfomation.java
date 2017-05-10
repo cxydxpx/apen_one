@@ -2,6 +2,8 @@ package com.example.apen.onedemo.manager.ui;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.apen.onedemo.BaseActivity;
@@ -10,26 +12,31 @@ import com.example.apen.onedemo.R;
 import butterknife.BindView;
 
 /**
- * Created by Administrator on 2017/5/9.
+ * Created by Administrator on 2017/5/10.
  */
 
-public class ManMainActivity extends BaseActivity {
+public class UserInfomation extends BaseActivity {
 
-    @BindView(R.id.tv_place_order)
-    TextView mPlaceOrder;
+    @BindView(R.id.include)
+    RelativeLayout mInclude;
+
+    @BindView(R.id.btn_submit)
+    Button mSubmit;
 
     @Override
     protected int layoutResId() {
-        return R.layout.activity_man_main;
+        return R.layout.activity_user_infomation;
     }
 
     @Override
     protected void init() {
+
     }
 
     @Override
     protected void initView() {
-
+        TextView tv = (TextView) mInclude.findViewById(R.id.tv);
+        tv.setText("选择送货信息");
     }
 
     @Override
@@ -39,18 +46,15 @@ public class ManMainActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        mPlaceOrder.setOnClickListener(this);
+        mSubmit.setOnClickListener(this);
     }
 
     @Override
     protected void processClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_place_order:
-                Intent intent = new Intent(this,ManGoodsActivity.class);
+            case R.id.btn_submit:
+                Intent intent = new Intent(this, AddressActivity.class);
                 startActivity(intent);
-
-                break;
-            default:
                 break;
         }
     }

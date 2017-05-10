@@ -47,6 +47,6 @@ public class FlushActivity extends BaseActivity {
     }
 
     @Override
-    protected void processClick(View view) {
+    protected void processClick(View v) {
     }
 }

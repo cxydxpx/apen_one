@@ -62,15 +62,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 
     @Override
-    public void onClick(View view) {
-        processClick(view);
+    public void onClick(View v) {
+        processClick(v);
     }
 
     /**
      * 点击事件
-     * @param view
+     * @param v
      */
-    protected abstract void processClick(View view);
+    protected abstract void processClick(View v);
 
     public <E extends View> E findView(int id){
         E view = (E) mViews.get(id);
