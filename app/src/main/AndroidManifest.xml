@@ -33,6 +33,8 @@
         <activity android:name=".manager.ui.UserInfomation"/>
         <activity android:name=".manager.ui.AddressActivity"/>
         <activity android:name=".manager.ui.CashActivity"/>
+        <activity android:name=".manager.ui.ReportActivity"/>
+        <activity android:name=".manager.ui.SalesActivity"/>
 
     </application>
 
