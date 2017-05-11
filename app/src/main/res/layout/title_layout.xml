@@ -4,14 +4,21 @@
     android:layout_height="@dimen/dp_48"
     android:background="@color/red">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:src="@mipmap/back" />
+
 
     <TextView
-        android:textSize="@dimen/sp_16"
-        android:layout_centerInParent="true"
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white" />
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
 
 
 </RelativeLayout>

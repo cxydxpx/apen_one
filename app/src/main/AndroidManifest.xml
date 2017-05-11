@@ -28,6 +28,7 @@
         <activity android:name=".manager.ui.SelectCategoryActivity"/>
         <activity android:name=".manager.ui.MaLoginActivity" />
         <activity android:name=".manager.ui.QueryGoodsActivity"/>
+        <activity android:name=".manager.ui.OrderQueryActivity"/>
         <activity android:name=".manager.ui.ShopCarActivity"/>
         <activity android:name=".manager.ui.SubmitOrderActivity"/>
         <activity android:name=".manager.ui.UserInfomation"/>
@@ -35,6 +36,12 @@
         <activity android:name=".manager.ui.CashActivity"/>
         <activity android:name=".manager.ui.ReportActivity"/>
         <activity android:name=".manager.ui.SalesActivity"/>
+
+        <activity android:name=".manager.ui.ArticleManagerActivity"/>
+        <activity android:name=".manager.ui.ArticleCategoryActivity"/>
+        <activity android:name=".manager.ui.VendorManagerActivity"/>
+        <activity android:name=".manager.ui.ClientManagerActivity"/>
+
 
     </application>
 

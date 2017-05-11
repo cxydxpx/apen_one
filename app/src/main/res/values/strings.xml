@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OneDemo</string>
+    <string name="app_name">麦旺通</string>
     <string name="title_activity_ma_login">Sign in</string>
 
     <!-- Strings related to login -->

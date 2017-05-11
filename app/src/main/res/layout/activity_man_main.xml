@@ -83,6 +83,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_article_manager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -102,6 +103,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_article_category"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -121,6 +123,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_vendor_manager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -140,6 +143,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_client_manager"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -159,6 +163,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_client_star"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 
@@ -178,6 +183,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_exit"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_48">
 

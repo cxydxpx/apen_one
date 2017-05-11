@@ -2,6 +2,7 @@ package com.example.apen.onedemo.manager.ui;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.apen.onedemo.BaseActivity;
@@ -14,6 +15,25 @@ import butterknife.BindView;
  */
 
 public class ManMainActivity extends BaseActivity {
+
+
+    @BindView(R.id.rl_article_manager)
+    RelativeLayout mArticleManager;
+
+    @BindView(R.id.rl_article_category)
+    RelativeLayout mArticleCategory;
+
+    @BindView(R.id.rl_vendor_manager)
+    RelativeLayout mVendorManager;
+
+    @BindView(R.id.rl_client_manager)
+    RelativeLayout mClientManager;
+
+    @BindView(R.id.rl_client_star)
+    RelativeLayout mClientStar;
+
+    @BindView(R.id.rl_exit)
+    RelativeLayout mExit;
 
     @BindView(R.id.tv_place_order)
     TextView mPlaceOrder;
@@ -51,6 +71,11 @@ public class ManMainActivity extends BaseActivity {
         mPlaceOrder.setOnClickListener(this);
         mOrder.setOnClickListener(this);
         mReport.setOnClickListener(this);
+
+        mArticleManager.setOnClickListener(this);
+        mArticleCategory.setOnClickListener(this);
+        mVendorManager.setOnClickListener(this);
+        mClientManager.setOnClickListener(this);
     }
 
     @Override
@@ -79,6 +104,27 @@ public class ManMainActivity extends BaseActivity {
                 startActivity(intent3);
 
                 break;
+            case R.id.rl_article_manager:
+
+                Intent intent4 = new Intent(this,ArticleManagerActivity.class);
+                startActivity(intent4);
+
+                break;
+            case R.id.rl_article_category:
+                Intent intent5 = new Intent(this,ArticleCategoryActivity.class);
+                startActivity(intent5);
+            case R.id.rl_vendor_manager:
+
+                Intent intent6 = new Intent(this,VendorManagerActivity.class);
+                startActivity(intent6);
+
+                break;
+
+            case R.id.rl_client_manager:
+                Intent intent7 = new Intent(this,ClientManagerActivity.class);
+                startActivity(intent7);
+                break;
+
             default:
                 break;
         }
