@@ -9,6 +9,10 @@ public class ClientBean {
     private String name;
     private String type;
 
+    public ClientBean(String name) {
+        this.name = name;
+    }
+
     public ClientBean(String name, String type) {
         this.name = name;
         this.type = type;
