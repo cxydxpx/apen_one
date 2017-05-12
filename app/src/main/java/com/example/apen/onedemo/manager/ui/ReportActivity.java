@@ -2,6 +2,8 @@ package com.example.apen.onedemo.manager.ui;
 
 import android.graphics.Color;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -10,9 +12,12 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.example.apen.onedemo.BaseActivity;
 import com.example.apen.onedemo.R;
+import com.example.apen.onedemo.bean.ReportBean;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -39,6 +44,7 @@ public class ReportActivity extends BaseActivity {
     @BindView(R.id.listview)
     ListView mListView;
     private TimePickerView pvTime, pvTime2;
+
     @Override
     protected void showView() {
 
@@ -109,11 +115,27 @@ public class ReportActivity extends BaseActivity {
     @Override
     protected void initView() {
 
+        TextView tv = (TextView) mInclude.findViewById(R.id.tv);
+        tv.setText("经营报表");
+        View headView = View.inflate(this, R.layout.layout_report_head, null);
+        mListView.addHeaderView(headView);
+
+
     }
 
     @Override
     protected void initData() {
 
+        initReportData();
+
+    }
+
+    private List<ReportBean> datas = new ArrayList<>();
+
+    private void initReportData() {
+        for (int i = 0; i < 20; i++) {
+            datas.add(new ReportBean("2017-02-" + i, "1单", "￥20" + i, "应收 20" + i));
+        }
     }
 
     @Override
@@ -123,6 +145,8 @@ public class ReportActivity extends BaseActivity {
         mQuery.setOnClickListener(this);
         mQueryStart.setOnClickListener(this);
         mQueryStop.setOnClickListener(this);
+
+        mListView.setAdapter(new IAdapter(datas));
     }
 
     @Override
@@ -142,4 +166,62 @@ public class ReportActivity extends BaseActivity {
         }
 
     }
+
+    private class IAdapter extends BaseAdapter {
+
+        private List<ReportBean> datas;
+
+        public IAdapter(List<ReportBean> datas) {
+            this.datas = datas;
+        }
+
+        @Override
+        public int getCount() {
+            return datas.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return datas.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder vh = null;
+            if (convertView == null) {
+                vh = new ViewHolder();
+                convertView = View.inflate(ReportActivity.this, R.layout.activity_report_item, null);
+
+                vh.tv_date = (TextView) convertView.findViewById(R.id.tv_date);
+                vh.tv_order_num = (TextView) convertView.findViewById(R.id.tv_order_num);
+                vh.tv_sales = (TextView) convertView.findViewById(R.id.tv_sales);
+                vh.tv_revenues = (TextView) convertView.findViewById(R.id.tv_revenues);
+
+                convertView.setTag(vh);
+            } else {
+                vh = (ViewHolder) convertView.getTag();
+            }
+            ReportBean mBean = datas.get(position);
+            vh.tv_date.setText(mBean.getDate());
+            vh.tv_order_num.setText(mBean.getOrderNum());
+            vh.tv_sales.setText(mBean.getSales());
+            vh.tv_revenues.setText(mBean.getRevenues());
+
+            return convertView;
+        }
+
+
+        private final class ViewHolder {
+            private TextView tv_date;
+            private TextView tv_order_num;
+            private TextView tv_sales;
+            private TextView tv_revenues;
+        }
+    }
+
 }

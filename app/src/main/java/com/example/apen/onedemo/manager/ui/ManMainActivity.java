@@ -76,7 +76,7 @@ public class ManMainActivity extends BaseActivity {
         mPlaceOrder.setOnClickListener(this);
         mOrder.setOnClickListener(this);
         mReport.setOnClickListener(this);
-
+        mSales.setOnClickListener(this);
         mArticleManager.setOnClickListener(this);
         mArticleCategory.setOnClickListener(this);
         mVendorManager.setOnClickListener(this);
@@ -116,6 +116,7 @@ public class ManMainActivity extends BaseActivity {
             case R.id.rl_article_category:
                 Intent intent5 = new Intent(this,ArticleCategoryActivity.class);
                 startActivity(intent5);
+                break;
 //                供应商管理
             case R.id.rl_vendor_manager:
                 Intent intent6 = new Intent(this,VendorManagerActivity.class);

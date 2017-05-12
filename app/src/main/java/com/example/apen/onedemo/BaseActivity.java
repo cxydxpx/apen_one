@@ -40,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         showView();
     }
 
-    protected abstract void showView();
+
 
     /**
      * 内容view
@@ -70,7 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     protected abstract void initListener();
 
-
+    protected abstract void showView();
     @Override
     public void onClick(View v) {
 

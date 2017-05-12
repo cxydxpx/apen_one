@@ -41,10 +41,11 @@
         android:layout_alignParentBottom="true">
 
         <Button
+            android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/red"
-            android:text="新增商品"
+            android:text="新增客户"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_16" />
 

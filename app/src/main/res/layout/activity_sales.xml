@@ -22,6 +22,7 @@
             android:text="从" />
 
         <TextView
+            android:id="@+id/tv_query_start"
             android:layout_width="@dimen/dp_100"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -36,6 +37,7 @@
             android:text="到" />
 
         <TextView
+            android:id="@+id/tv_query_stop"
             android:layout_width="@dimen/dp_100"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -49,6 +51,7 @@
 
 
         <Button
+            android:id="@+id/btn_query"
             android:layout_width="@dimen/dp_150"
             android:layout_height="@dimen/dp_36"
             android:layout_centerInParent="true"

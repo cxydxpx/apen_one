@@ -1,8 +1,10 @@
 package com.example.apen.onedemo.manager.ui;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,6 +29,10 @@ public class ClientManagerActivity extends BaseActivity {
 
     @BindView(R.id.listview)
     ListView mListView;
+
+    @BindView(R.id.btn_add)
+    Button mAdd;
+
     private TextView tv1;
     private TextView tv;
 
@@ -65,21 +71,27 @@ public class ClientManagerActivity extends BaseActivity {
     private List<ClientBean> datas = new ArrayList<>();
 
     private void initClientData() {
-
         for (int i = 0; i < 20; i++) {
             datas.add(new ClientBean("测试用户"+i,"批发客户"+i));
         }
-
     }
 
     @Override
     protected void initListener() {
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
+        mAdd.setOnClickListener(this);
         mListView.setAdapter(new IAdapter(datas));
     }
-
     @Override
     protected void processClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.btn_add:
+                Intent intent = new Intent(this,NewAddClientActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
     private class IAdapter extends BaseAdapter {

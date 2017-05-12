@@ -1,8 +1,10 @@
 package com.example.apen.onedemo.manager.ui;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,6 +30,9 @@ public class ArticleManagerActivity extends BaseActivity {
     @BindView(R.id.listview)
     ListView mListView;
 
+    @BindView(R.id.btn_add)
+    Button mAdd;
+
     @Override
     protected void showView() {
 
@@ -42,10 +47,8 @@ public class ArticleManagerActivity extends BaseActivity {
     protected void init() {
 
     }
-
     @Override
     protected void initView() {
-
         View headView = View.inflate(this,R.layout.layout_lv_head,null);
         mListView.addHeaderView(headView);
         TextView tv = (TextView) mInclude.findViewById(R.id.tv);
@@ -60,21 +63,31 @@ public class ArticleManagerActivity extends BaseActivity {
     private List<ArticleBean> datas = new ArrayList<>();
 
     private void initArticleData() {
-
         for (int i = 0; i < 20; i++) {
             datas.add(new ArticleBean("东北大米"+i,"万金商会"+i,"800斤"+i));
         }
-
     }
 
     @Override
     protected void initListener() {
+        mAdd.setOnClickListener(this);
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
         mListView.setAdapter(new IAdapter(datas));
     }
 
     @Override
     protected void processClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_add:
 
+                Intent intent = new Intent(this,NewAddGoodsActivity.class);
+                startActivity(intent);
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     private class IAdapter extends BaseAdapter{

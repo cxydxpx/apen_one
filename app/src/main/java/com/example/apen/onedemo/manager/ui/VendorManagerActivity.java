@@ -1,8 +1,10 @@
 package com.example.apen.onedemo.manager.ui;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,6 +30,9 @@ public class VendorManagerActivity extends BaseActivity{
 
     @BindView(R.id.listview)
     ListView mListView;
+
+    @BindView(R.id.btn_add)
+    Button mAdd;
 
     @Override
     protected void showView() {
@@ -71,12 +76,21 @@ public class VendorManagerActivity extends BaseActivity{
 
     @Override
     protected void initListener() {
+        mAdd.setOnClickListener(this);
         mListView.setAdapter(new IAdapter(datas));
     }
 
     @Override
     protected void processClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_add:
 
+                Intent intent = new Intent(this,NewAddVendorActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
     private class IAdapter extends BaseAdapter {
