@@ -19,6 +19,8 @@ import java.util.List;
 
 import butterknife.BindView;
 
+import static com.example.apen.onedemo.R.id.btn_delete;
+
 /**
  * Created by Administrator on 2017/5/10.
  */
@@ -34,7 +36,15 @@ public class ShopCarActivity extends BaseActivity {
     @BindView(R.id.btn_submit)
     Button mSubmit;
 
+    @BindView(R.id.tv_empty)
+    TextView mEmpty;
+
     private TextView tv;
+
+    @Override
+    protected void showView() {
+
+    }
 
     @Override
     protected int layoutResId() {
@@ -69,10 +79,13 @@ public class ShopCarActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
+        if (datas.size() == 0) {
+            mListView.setVisibility(View.GONE);
+            mEmpty.setVisibility(View.VISIBLE);
+        }
         mListView.setAdapter(new IAdapter(datas));
-
         mSubmit.setOnClickListener(this);
-
     }
 
     @Override
@@ -80,13 +93,10 @@ public class ShopCarActivity extends BaseActivity {
 
         switch (v.getId()) {
             case R.id.btn_submit:
-
-                Intent intent = new Intent(this,SubmitOrderActivity.class);
+                Intent intent = new Intent(this, SubmitOrderActivity.class);
                 startActivity(intent);
-
                 break;
         }
-
     }
 
     protected class IAdapter extends BaseAdapter {
@@ -113,39 +123,53 @@ public class ShopCarActivity extends BaseActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder vh = null;
-            if (convertView == null){
+            if (convertView == null) {
                 vh = new ViewHolder();
-                convertView = View.inflate(ShopCarActivity.this,R.layout.activity_shop_car_item,null);
+                convertView = View.inflate(ShopCarActivity.this, R.layout.activity_shop_car_item, null);
                 vh.name = (TextView) convertView.findViewById(R.id.tv_name);
                 vh.type = (TextView) convertView.findViewById(R.id.tv_type);
-                vh.delete = (Button) convertView.findViewById(R.id.btn_delete);
+                vh.delete = (Button) convertView.findViewById(btn_delete);
                 vh.tvNumber = (TextView) convertView.findViewById(R.id.tv_number);
                 vh.tvPrice = (TextView) convertView.findViewById(R.id.tv_price);
                 vh.number = (EditText) convertView.findViewById(R.id.et_number);
                 vh.price = (EditText) convertView.findViewById(R.id.et_price);
 
                 convertView.setTag(vh);
-            }else {
+            } else {
                 vh = (ViewHolder) convertView.getTag();
             }
 
             vh.tvNumber.setText("数量");
             vh.tvPrice.setText("单价");
+            vh.delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    datas.remove(position);
+                    if (datas.size() == 0) {
+                        mListView.setVisibility(View.GONE);
+                        mEmpty.setVisibility(View.VISIBLE);
+                    }
+                    IAdapter.this.notifyDataSetChanged();
+                }
+            });
+
 
             ShopCarBean bean = datas.get(position);
 
             vh.name.setText(bean.getName());
             vh.type.setText(bean.getType());
 
-            vh.number.setText(bean.getNumber()+"");
-            vh.price.setText(bean.getPrice()+"");
+            vh.number.setText(bean.getNumber() + "");
+            vh.price.setText(bean.getPrice() + "");
+
+
             return convertView;
         }
 
-        class ViewHolder{
+        class ViewHolder {
             public TextView name;
             public TextView type;
             public Button delete;

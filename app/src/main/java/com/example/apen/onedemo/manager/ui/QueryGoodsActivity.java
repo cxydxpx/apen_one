@@ -20,6 +20,11 @@ public class QueryGoodsActivity extends BaseActivity {
     private TextView tv;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_query_goods;
     }

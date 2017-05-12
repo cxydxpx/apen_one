@@ -11,6 +11,11 @@ import com.example.apen.onedemo.R;
 
 public class SalesActivity extends BaseActivity{
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_sales;
     }

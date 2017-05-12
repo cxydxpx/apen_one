@@ -8,11 +8,12 @@ import com.bigkoo.pickerview.TimePickerView;
 import com.example.apen.onedemo.BaseActivity;
 import com.example.apen.onedemo.R;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
+
+import static com.example.apen.onedemo.utils.AppUtils.getTime;
 
 /**
  * Created by Administrator on 2017/5/10.
@@ -25,6 +26,11 @@ public class OrderQueryActivity extends BaseActivity {
 
     @BindView(R.id.tv_query_stop)
     TextView mQueryStop;
+
+    @Override
+    protected void showView() {
+
+    }
 
     @Override
     protected int layoutResId() {
@@ -88,10 +94,6 @@ public class OrderQueryActivity extends BaseActivity {
                 .build();
     }
 
-    private String getTime(Date date) {//可根据需要自行截取数据显示
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        return format.format(date);
-    }
 
     @Override
     protected void initView() {

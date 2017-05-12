@@ -29,6 +29,11 @@ public class ArticleCategoryActivity extends BaseActivity{
     ListView mListView;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_article_category;
     }

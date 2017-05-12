@@ -23,6 +23,11 @@ public class AddressActivity extends BaseActivity {
     private TextView tv;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_address;
     }

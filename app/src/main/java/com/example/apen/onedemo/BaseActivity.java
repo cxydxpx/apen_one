@@ -13,11 +13,12 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/5/9.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "TAG";
     private SparseArray<View> mViews;
     public ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +29,26 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         init();
 
         initView();
-
         initData();
-
         initListener();
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showView();
+    }
+
+    protected abstract void showView();
+
     /**
      * 内容view
+     *
      * @return
      */
     protected abstract int layoutResId();
+
     /**
      * 初始化
      */
@@ -63,20 +73,32 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        processClick(v);
+
+        switch (v.getId()) {
+            case R.id.rl_back:
+                finish();
+                break;
+            default:
+                processClick(v);
+                break;
+
+        }
+
+
     }
 
     /**
      * 点击事件
+     *
      * @param v
      */
     protected abstract void processClick(View v);
 
-    public <E extends View> E findView(int id){
+    public <E extends View> E findView(int id) {
         E view = (E) mViews.get(id);
-        if (view == null){
+        if (view == null) {
             view = (E) findViewById(id);
-            mViews.put(id,view);
+            mViews.put(id, view);
         }
         return view;
     }

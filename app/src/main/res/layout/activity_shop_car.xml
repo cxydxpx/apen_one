@@ -11,8 +11,21 @@
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ll"
+        android:layout_below="@+id/include"></ListView>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll"
         android:layout_below="@+id/include"
-        android:layout_above="@+id/ll"></ListView>
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:text="购物车为空"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
 
     <LinearLayout
         android:id="@+id/ll"

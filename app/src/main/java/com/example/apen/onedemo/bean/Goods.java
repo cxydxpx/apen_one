@@ -9,6 +9,7 @@ public class Goods {
     private String name;
     private String weight;
     private String price;
+    private int number;
 
     public Goods(String name) {
         this.name = name;

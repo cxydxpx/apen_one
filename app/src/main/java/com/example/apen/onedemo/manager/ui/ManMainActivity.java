@@ -48,6 +48,11 @@ public class ManMainActivity extends BaseActivity {
     TextView mSales;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_man_main;
     }

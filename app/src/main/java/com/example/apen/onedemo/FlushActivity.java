@@ -26,6 +26,11 @@ public class FlushActivity extends BaseActivity {
     }
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_flush;
     }

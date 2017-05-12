@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".ui.activity.MainActivity" />
 
-        <activity android:name=".manager.ui.ManMainActivity"/>
+        <activity android:name=".manager.ui.ManMainActivity"
+            android:launchMode="singleTop"/>
         <activity android:name=".manager.ui.ManGoodsActivity"/>
         <activity android:name=".manager.ui.SelectCategoryActivity"/>
         <activity android:name=".manager.ui.MaLoginActivity" />

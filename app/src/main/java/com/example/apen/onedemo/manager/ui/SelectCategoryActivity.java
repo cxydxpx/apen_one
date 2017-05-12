@@ -31,6 +31,11 @@ public class SelectCategoryActivity extends BaseActivity {
     private TextView tv;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_select_category;
     }
@@ -57,8 +62,9 @@ public class SelectCategoryActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        listview.setAdapter(new IAdapter(datas));
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
 
+        listview.setAdapter(new IAdapter(datas));
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

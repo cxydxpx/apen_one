@@ -13,6 +13,7 @@ import com.example.apen.onedemo.R;
 import com.example.apen.onedemo.bean.Goods;
 import com.example.apen.onedemo.utils.DividerGridItemDecoration;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import butterknife.BindView;
 
 /**
  * Created by Administrator on 2017/5/10.
+ * 其实就是从仓库调去货物发出出去的一个功能
  */
 
 public class ManGoodsActivity extends BaseActivity {
@@ -43,6 +45,7 @@ public class ManGoodsActivity extends BaseActivity {
 
     private TextView tv;
 
+
     @Override
     protected int layoutResId() {
         return R.layout.activity_man_goods;
@@ -56,7 +59,7 @@ public class ManGoodsActivity extends BaseActivity {
     @Override
     protected void initView() {
         tv = (TextView) mInclude.findViewById(R.id.tv);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
     }
@@ -79,13 +82,18 @@ public class ManGoodsActivity extends BaseActivity {
     }
 
     @Override
-    protected void initListener() {
+    protected void showView() {
 
+    }
+
+    @Override
+    protected void initListener() {
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
         mCategory.setOnClickListener(this);
         mQuery.setOnClickListener(this);
         mShopCar.setOnClickListener(this);
 
-        CommonAdapter commonAdapter = new CommonAdapter<Goods>(this,R.layout.activity_man_goods_item,goodsDatas){
+        CommonAdapter commonAdapter = new CommonAdapter<Goods>(this, R.layout.activity_man_goods_item, goodsDatas) {
             @Override
             protected void convert(ViewHolder holder, Goods goods, int position) {
                 TextView mName = holder.getView(R.id.tv_name);
@@ -98,6 +106,17 @@ public class ManGoodsActivity extends BaseActivity {
 
             }
         };
+        commonAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
         mRecyclerView.setAdapter(commonAdapter);
     }
 
@@ -105,18 +124,15 @@ public class ManGoodsActivity extends BaseActivity {
     protected void processClick(View v) {
         switch (v.getId()) {
             case R.id.tv_category:
-                Intent intent = new Intent(this,SelectCategoryActivity.class);
+                Intent intent = new Intent(this, SelectCategoryActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_query:
-
-                Intent intent1 = new Intent(this,QueryGoodsActivity.class);
+                Intent intent1 = new Intent(this, QueryGoodsActivity.class);
                 startActivity(intent1);
-
                 break;
             case R.id.tv_shop_car:
-
-                Intent intent2 = new Intent(this,ShopCarActivity.class);
+                Intent intent2 = new Intent(this, ShopCarActivity.class);
                 startActivity(intent2);
 
                 break;

@@ -24,6 +24,11 @@ public class CashActivity extends BaseActivity {
     Button mSubmit;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_cash;
     }

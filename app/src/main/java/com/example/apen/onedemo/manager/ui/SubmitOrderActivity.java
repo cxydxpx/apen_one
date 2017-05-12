@@ -39,6 +39,11 @@ public class SubmitOrderActivity extends BaseActivity {
     private TextView tv;
 
     @Override
+    protected void showView() {
+
+    }
+
+    @Override
     protected int layoutResId() {
         return R.layout.activity_submit_order;
     }
