@@ -51,6 +51,7 @@ public class CashActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
         mSubmit.setOnClickListener(this);
     }
 
@@ -58,11 +59,10 @@ public class CashActivity extends BaseActivity {
     protected void processClick(View v) {
         switch (v.getId()) {
             case R.id.btn_submit:
-
                 Intent intent = new Intent(this, ManMainActivity.class);
-
                 startActivity(intent);
-
+                break;
+            default:
                 break;
         }
     }

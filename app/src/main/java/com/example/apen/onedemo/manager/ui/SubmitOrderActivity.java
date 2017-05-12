@@ -79,6 +79,9 @@ public class SubmitOrderActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
+
         mSubmit.setOnClickListener(this);
         mInfomation.setOnClickListener(this);
 

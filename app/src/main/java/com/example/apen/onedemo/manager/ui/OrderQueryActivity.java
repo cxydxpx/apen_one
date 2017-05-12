@@ -2,6 +2,7 @@ package com.example.apen.onedemo.manager.ui;
 
 import android.graphics.Color;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.TimePickerView;
@@ -27,10 +28,9 @@ public class OrderQueryActivity extends BaseActivity {
     @BindView(R.id.tv_query_stop)
     TextView mQueryStop;
 
-    @Override
-    protected void showView() {
+    @BindView(R.id.include)
+    RelativeLayout mInclude;
 
-    }
 
     @Override
     protected int layoutResId() {
@@ -97,7 +97,8 @@ public class OrderQueryActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        TextView tv = (TextView) mInclude.findViewById(R.id.tv);
+        tv.setText("订单查询");
     }
 
     @Override
@@ -109,10 +110,14 @@ public class OrderQueryActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        mInclude.findViewById(R.id.rl_back).setOnClickListener(this);
         mQueryStart.setOnClickListener(this);
         mQueryStop.setOnClickListener(this);
     }
+    @Override
+    protected void showView() {
 
+    }
     @Override
     protected void processClick(View v) {
         switch (v.getId()) {
