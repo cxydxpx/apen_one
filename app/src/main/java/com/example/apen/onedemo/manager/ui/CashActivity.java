@@ -47,6 +47,7 @@ public class CashActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+
     }
 
     @Override
